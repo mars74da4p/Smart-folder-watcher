@@ -1,0 +1,27 @@
+# Set watch_dir to the folder to monitor. Environment variables and ~ are supported.
+watch_dir: ~/Downloads
+recursive: false
+
+# Rules are checked from top to bottom. The first matching rule wins.
+# Each condition within a rule must match. Sizes are measured in bytes.
+rules:
+  - name: images
+    extensions: [.jpg, .jpeg, .png, .gif, .webp, .tiff]
+    destination: ~/Sorted/Images
+
+  - name: documents
+    extensions: [.pdf, .doc, .docx, .txt, .rtf, .odt]
+    destination: ~/Sorted/Documents
+
+  - name: pdf-invoices
+    extensions: [.pdf]
+    pdf_keywords: [invoice, payment]
+    destination: ~/Sorted/Invoices
+
+  - name: large-files
+    min_size: 104857600
+    destination: ~/Sorted/Large files
+
+  - name: archives
+    extensions: [.zip, .tar, .gz, .7z, .rar]
+    destination: ~/Sorted/Archives
